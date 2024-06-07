@@ -1,8 +1,10 @@
 
-
+# task 2
+# computing number of odd natural numbers
 
 
 def task2():
+    # computing and printing number of odd natural numbers
     x = -1
     ans = 0
     while x != 0:

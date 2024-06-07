@@ -1,6 +1,11 @@
-
+# task 4
+# computing:
+# the number of words, starting with vowels
+# the number of words with two consecutive equal letters
+# all the words in alphabetical order
 
 def words_stasting_with_vowel(text):
+    # compute the number of words, starting with vowels
     ans = 0
     vowels = ['a', 'e', 'i', 'o', 'u']
     words = text.split()
@@ -10,6 +15,7 @@ def words_stasting_with_vowel(text):
     return ans
 
 def words_with_equal_consecutive_letters(text):
+    # compute the number of words with two consecutive equal letters
     ans = 0
     words = text.split()
     for word in words:
@@ -20,6 +26,7 @@ def words_with_equal_consecutive_letters(text):
     return ans
 
 def words_in_alphabetical_order(text):
+    # printing all the words in alphabetical order
     words = text.split()
     words.sort()
     for word in words:
@@ -28,6 +35,7 @@ def words_in_alphabetical_order(text):
 
 
 def task4():
+    #printing results
     text = '''So she was considering in her own mind, as well as she could, for the hot day made her feel very sleepy and stupid, whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.'''
     print("The text:")
     print(text)

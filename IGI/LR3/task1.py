@@ -1,10 +1,6 @@
 import math
-
-# Made by Roman Markovets
-# variant 17
 # task 1
 # computing cos(x) with Tailor series
-# 29.05.2024
 
 
 
@@ -23,8 +19,10 @@ def get_input():
             continue
         return x, eps
 
+
+
 def get_cos(x, eps):
-    #computing cos(x)
+    # calculating the cos(x)
     f = 1
     val = 1
     n = 0
@@ -36,6 +34,7 @@ def get_cos(x, eps):
     return [x, n, f, math_f, eps]
 
 def task1():
+    #printing results
     x, eps = get_input()
     x, n, f, math_f, eps = get_cos(x, eps)
-    print(x, n, f, math_f, eps)
+    print("x = ", x, "\t\tn = ", n, "\t\tF(x) = ", f, "\t\tMathF(x) = ", math_f, "\t\teps ", eps, sep='')
