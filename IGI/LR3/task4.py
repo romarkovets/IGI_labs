@@ -8,9 +8,9 @@ def words_stasting_with_vowel(text):
     # compute the number of words, starting with vowels
     ans = 0
     vowels = ['a', 'e', 'i', 'o', 'u']
-    words = text.split()
+    words = text.split(sep=".", )
     for word in words:
-        if word[0].lower() in vowels:
+        if word[0] in vowels:
             ans += 1
     return ans
 
