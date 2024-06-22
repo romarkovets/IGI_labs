@@ -1,0 +1,13 @@
+Number of sentences: 11
+There are 8 narrative, 1 questioning and 2 imperative sentences
+Average length of a sentence: 12.181818181818182
+Average length of a word: 3.6216216216216215
+Number of emojis: 5
+All the words with letters from 'f' to 'y': 
+krhfh, pouvi, n, i, to, sports, you, too
+All the costs: 
+23.02 USD, 54 RUB, 43.00 EU, 5 EU, 234324234.32 EU, 001 USD, 222 RUB, 1.1 RUB, 33.33 EU
+Number of words with length < 7: 39
+The shortest word, starting with 'a': abrakadabra
+All the words in decreasing order of length: 
+abrakadabra, opjelkng, ergjher, ergrger, khdkljf, bhkbjkb, weofjw, sports, krhfh, pouvi, jkbkb, njbn, like, play, USD, RUB, USD, RUB, RUB, RUB, you, too, EU, EU, EU, EU, EU, in, nn, jb, to, n, n, j, k, k, i

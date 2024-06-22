@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Регистрация</h1>
+    <div class="login-form">
+        <form  method="post">
+            {% csrf_token %}
+
+            {% if messages %}
+            <table class="messages-table">
+                <thead>
+                    {% for message in messages %}
+                    <tr>
+                        <th> {{ message }}</th>
+                    </tr>
+                    {% endfor %}
+                </thead>
+            </table>
+            {% endif %}
+
+            {{ form.as_p }}
+
+
+
+            <button class="form-control" type="submit">Добавить пользователя</button>
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,27 +1,6 @@
 import csv
 import pickle
-
-
-def validate_positive_int():
-    while True:
-        try:
-            num = int(input())
-            if num < 1:
-                raise ValueError
-            return num
-        except ValueError:
-            print("Invalid input: your number needs to be a positive integer")
-
-
-def validate_case():
-    while True:
-        try:
-            case = int(input())
-            if case < 1 or case > 8:
-                raise ValueError()
-            return case
-        except ValueError:
-            print("Invalid input: your number needs to be an integer from 1 to 8, try again")
+import validators
 
 
 class Student:
@@ -33,8 +12,10 @@ class Student:
 
 
 class SchoolClass:
-    csvpath = r"D:\univer\papka\IGI_labs\IGI\LR4\task1\students.csv"
-    picklepath = r"D:\univer\papka\IGI_labs\IGI\LR4\task1\students.txt"
+    # csvpath = r"students.csv"
+    # picklepath = r"students.txt"
+    csvpath = r"task1\students.csv"
+    picklepath = r"task1\students.txt"
 
     def __init__(self, mylist):
         self.listOfStudents = mylist
@@ -46,7 +27,7 @@ class SchoolClass:
 
     def print_students_by_month(self):
         print("Input the number of month")
-        month = validate_positive_int()
+        month = validators.validate_positive_int()
         listByMonth = [student for student in self.listOfStudents if student.monthOfBirth == month]
         print("The list of students in month {}: ".format(month))
         for student in listByMonth:
@@ -85,11 +66,11 @@ class SchoolClass:
         print("Input the name of a student")
         name = input()
         print("Input the day of birth of a student")
-        day = validate_positive_int()
+        day = validators.validate_positive_int()
         print("Input the month of birth of a student")
-        month = validate_positive_int()
+        month = validators.validate_positive_int()
         print("Input the year of birth of a student")
-        year = validate_positive_int()
+        year = validators.validate_positive_int()
         self.add_student(Student(name, day, month, year))
 
 
@@ -109,7 +90,7 @@ def task1():
 6) Save a class to pickle file
 7) Save a class to csv file
 8) Show the list of students of a specific month""")
-        case = validate_case()
+        case = validators.validate_int_in_range(1, 8)
         match case:
             case 1:
                 myClass.print_students()
