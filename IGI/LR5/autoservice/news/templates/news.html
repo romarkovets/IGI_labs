@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+<h1>Новости</h1>
+{% block content %}
+    {% for news_item in news %}
+        <div>
+            <h2>{{news_item.title}}</h2>
+            <img src="{{news_item.photo.url }}" alt="News image" width="300" height="200">
+            <p>{{news_item.text}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

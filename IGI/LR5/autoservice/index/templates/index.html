@@ -2,5 +2,13 @@
 {% block header %}Главная{% endblock header %}
   
 {% block content %}
-Это главная страница, здравствуйте!
+<h2>Последние новости: наш ремонтный сервис стал топ1 в Беларуси!</h2>
+<p>Следующая цель - топ1 в г. Жлобин.</p>
+
+{% if user.is_authenticated %}
+
+{% else %}
+
+{% endif %}
+
 {% endblock content %}

@@ -13,6 +13,8 @@ import logging
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     form = LoginForm(request.POST or None)
     msg = None
     if request.method == "POST":
@@ -39,6 +41,8 @@ def login(request):
 
 
 def registration(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     form = SignUpForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
@@ -58,14 +62,14 @@ def registration(request):
 
             # user.is_customer = True
             user.save()
-            CustomUser.objects.create(username=user.username,
-                                      email=user.email,
-                                      password=user.password,
-                                      first_name=user.first_name,
-                                      last_name=user.last_name,
-                                      is_staff=user.is_staff
-                                        )
-            logging.info(f"{user.username} зарегистрирован")
-            return redirect('/')
+            # logging.info(f"{user.username} зарегистрирован")
+            return redirect('/login')
     logging.info(f"Вызвана страница регистрации")
     return render(request, 'registration.html', {'form': form, 'msg': 1})
+
+
+@login_required
+def _logout(request):
+    logging.info(f"{request.user.username} вышел из аккаунта")
+    logout(request)
+    return redirect('/')

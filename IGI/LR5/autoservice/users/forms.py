@@ -73,9 +73,17 @@ class SignUpForm(UserCreationForm):
         )
     )
 
+    date_of_birth = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                'class': 'form-control',
+                'type': 'date',
+                'placeholder': 'Введите дату рождения'
+            }
+        )
+    )
+
     class Meta:
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
-        # widgets = {
-        #     'date_of_birth': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
-        # }
+        fields = ('username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'date_of_birth')
+

@@ -5,17 +5,25 @@
     <title>{% block title %}АвтоСервис Маркокекс{% endblock title %}</title>
 </head>
 <body>
-    <div><a href="/">Главная</a> |
-        <a href="/about">О компании</a> |
-        <a href="/news">Новости</a> |
-        <a href="/faq">FAQ </a> |
-        <a href="/privacy">Политика конфиденциальности </a> |
-        <a href="/contacts">Контакты </a> |
-        <a href="/vacancies">Вакансии </a> |
-        <a href="/reviews">Отзывы </a> |
-        <a href="/discounts">Промокоды </a> |
-        <a href="/login">Вход </a> |
-        <a href="/registration">Регистрация </a>
+    <div><a href="/">Главная</a>
+        | <a href="/about">О компании</a>
+        | <a href="/news">Новости</a>
+        | <a href="/faq">FAQ </a>
+        | <a href="/contacts">Контакты </a>
+        | <a href="/privacy">Политика конфиденциальности </a>
+        | <a href="/vacancies">Вакансии </a>
+        | <a href="/reviews">Отзывы </a>
+        | <a href="/discounts">Промокоды </a>
+        {% if user.is_authenticated %}
+            {% if user.admin or user.staff %}
+
+            {% endif %}
+            | <a href="/logout">Выход </a>
+        {% else %}
+            | <a href="/login">Вход </a>
+            | <a href="/registration">Регистрация </a>
+        {% endif %}
+
     </div>
 
 
