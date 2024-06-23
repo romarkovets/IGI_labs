@@ -10,7 +10,9 @@ from django.conf import settings
 from about.views import about_view
 from privacy.views import privacy_view
 from contacts.views import contacts_view
-from reviews.views import new_review, reviews_view
+from reviews.views import reviews_view
+from services.views import services_view
+from orders.views import employee_view, customer_view
 
 from django.urls import path, include
 
@@ -25,7 +27,10 @@ urlpatterns = [
     path('about/', about_view, name="about"),
     path('privacy/', privacy_view, name="privacy"),
     path('contacts/', contacts_view, name="contacts"),
-    path('reviews/', new_review, name="new review"),
+    path('reviews/', reviews_view, name="reviews"),
+    path('services/', services_view, name="service"),
+    path('employeeorders/', employee_view, name="employee_view"),
+    path('customerorders/', customer_view, name="customer_view"),
 
     path("", index),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

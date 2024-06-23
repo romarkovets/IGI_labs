@@ -2,13 +2,11 @@
 {% block header %}Главная{% endblock header %}
   
 {% block content %}
-<h2>Последние новости: наш ремонтный сервис стал топ1 в Беларуси!</h2>
-<p>Следующая цель - топ1 в г. Жлобин.</p>
-
+<h2>Последние новости:  {{latest_news.title}} </h2>
 {% if user.is_authenticated %}
-
-{% else %}
-
+<p> Случайный факт про <b>кошек</b>: {{cat_api_data.fact}}</p>
 {% endif %}
+<p> Случайное фото <b>собаки</b>: </p>
+ <img src="{{dog_api_data.message}}" alt="News image" width="200" height="200"> <br>
 
 {% endblock content %}

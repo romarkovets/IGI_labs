@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'privacy',
     'contacts',
     'reviews',
+    'services',
+    'orders',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+<h1>Доступные услуги</h1>
+{% block content %}
+         <h2>Поиск и сортировка:</h2>
+         <form>
+            {{ search_form.as_p }}
+            <br>
+            <button class="form-control" type="submit">Найти</button>
+        </form>
+    {% for service in services %}
+        <div>
+            <p> <b>Услуга:</b> {{service.name}}</p>
+            <p> <b>Описание:</b> {{service.description}} </p>
+            <p> <b> Цена:</b> {{service.cost}} бел.руб. </p>
+            <br>
+        </div>
+    {% endfor %}
+{% endblock %}

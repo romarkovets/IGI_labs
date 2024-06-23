@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Employee
+from users.models import Employee
 
 
 # Create your views here.

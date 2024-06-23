@@ -14,9 +14,12 @@
         | <a href="/vacancies">Вакансии </a>
         | <a href="/reviews">Отзывы </a>
         | <a href="/discounts">Промокоды </a>
+        | <a href="/services">Услуги </a>
         {% if user.is_authenticated %}
-            {% if user.admin or user.staff %}
-
+            {% if user.staff %}
+            | <a href="/employeeorders">Заказы </a>
+            {% else %}
+            | <a href="/customerorders">Заказы </a>
             {% endif %}
             | <a href="/logout">Выход </a>
         {% else %}

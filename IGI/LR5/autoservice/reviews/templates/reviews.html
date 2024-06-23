@@ -5,9 +5,9 @@
 
      {% for review in reviews %}
         <div>
-            <h2>{{review.name}}</h2>
-            <p>{{review.description}}</p>
-            <p>{{review.score}}</p>
+            <h2>{{review.author.full_name}}</h2>
+            <p>Отзыв: {{review.description}}</p>
+            <p>Оценка: {{review.score}}</p>
         </div>
     {% endfor %}
 

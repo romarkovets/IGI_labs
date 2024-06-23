@@ -3,7 +3,7 @@ from .models import Review
 
 class ReviewForm(forms.ModelForm):
     description = forms.CharField(
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
                 'class': 'form-control',
                 'placeholder': 'Содержание'

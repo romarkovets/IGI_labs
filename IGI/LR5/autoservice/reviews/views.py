@@ -2,9 +2,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .models import Review
 from .forms import ReviewForm
-# Create your views here.
 
-def new_review(request):
+
+def reviews_view(request):
     reviews = Review.objects.all()
     form = None
     if request.user.is_authenticated:
@@ -16,6 +16,3 @@ def new_review(request):
             return redirect('/reviews')
 
     return render(request, 'reviews.html', {"reviews": reviews, "form": form})
-
-def reviews_view(request):
-    pass

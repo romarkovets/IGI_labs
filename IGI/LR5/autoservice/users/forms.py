@@ -4,7 +4,6 @@ from .models import CustomUser
 
 
 class LoginForm(forms.Form):
-    #  класс Meta не требуется, так как вы не используете модель для создания формы.
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -56,6 +55,14 @@ class SignUpForm(UserCreationForm):
             }
         )
     )
+    phone = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Введите телефон'
+            }
+        )
+    )
     first_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -83,7 +90,10 @@ class SignUpForm(UserCreationForm):
         )
     )
 
+    staff = forms.ChoiceField(choices=((False, "Покупатель"), (True, "Работник")))
+
     class Meta:
         model = CustomUser
-        fields = ('username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'date_of_birth')
+        fields = ('username', 'password1', 'password2', 'first_name', 'last_name',
+                  'email', 'phone', 'date_of_birth', 'staff')
 

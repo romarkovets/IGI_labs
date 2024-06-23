@@ -10,4 +10,4 @@ class Article(models.Model):
 
     class Meta:
         verbose_name_plural = "Article"
-
+        get_latest_by = ['title']
