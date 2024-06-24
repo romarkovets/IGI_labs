@@ -7,37 +7,43 @@ from task5.task5 import task5
 
 
 def main():
-    print("""1) Show task description
+    while True:
+        print("""1) Show task description
 2) Run the task""")
-    case = validators.validate_int_in_range(1, 2)
-    print("Choose the task number between 1 and 5")
-    task = validators.validate_int_in_range(1, 5)
-    match case:
-        case 1:
-            match task:
-                case 1:
-                    print("School class methods")
-                case 2:
-                    print("Methods for text")
-                case 3:
-                    print("Plots for Tailor's series")
-                case 4:
-                    print("Inheritance for geometric figures")
-                case 5:
-                    print("Methods in matrices")
-        case 2:
-            match task:
-                case 1:
-                    task1()
-                case 2:
-                    task2()
-                case 3:
-                    task3()
-                case 4:
-                    task4()
-                case 5:
-                    task5()
-
+        case = validators.validate_int_in_range(1, 2)
+        print("Choose the task number between 1 and 5")
+        task = validators.validate_int_in_range(1, 5)
+        match case:
+            case 1:
+                match task:
+                    case 1:
+                        print("School class methods")
+                    case 2:
+                        print("Methods for text")
+                    case 3:
+                        print("Plots for Tailor's series")
+                    case 4:
+                        print("Inheritance for geometric figures")
+                    case 5:
+                        print("Methods in matrices")
+            case 2:
+                match task:
+                    case 1:
+                        task1()
+                    case 2:
+                        task2()
+                    case 3:
+                        task3()
+                    case 4:
+                        task4()
+                    case 5:
+                        task5()
+        print("""Run again?
+        1) Yes
+        2) No""")
+        case = validators.validate_int_in_range(1, 2)
+        if case == 2:
+            break
 
 
 

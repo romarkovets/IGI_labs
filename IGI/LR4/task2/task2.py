@@ -4,10 +4,10 @@ import zipfile
 
 class Analyzer:
     def __init__(self):
-        # self.inputpath = "task2\in.txt"
-        # self.outputpath = "task2\out.txt"
-        self.inputpath = "in.txt"
-        self.outputpath = "out.txt"
+        self.inputpath = "task2\in.txt"
+        self.outputpath = "task2\out.txt"
+        # self.inputpath = "in.txt"
+        # self.outputpath = "out.txt"
         self.text = ""
         self.read_text()
 

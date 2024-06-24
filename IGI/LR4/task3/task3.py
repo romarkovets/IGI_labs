@@ -46,7 +46,7 @@ class Function:
             self.results.append(f)
         return f
 
-    # file_plots = "task3/plots.png"
+    # # file_plots = "task3/plots.png"
     file_plots = "plots.png"
     def draw_plots(self):
         x = np.arange(-10, 10, 0.1)

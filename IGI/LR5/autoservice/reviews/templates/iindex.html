@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+</head>
+<body>
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите текст</label><br>
+            <input type="text" name="description" />
+        </p>
+        <p>
+            <label>Введите оценку</label><br>
+            <input type="number" name="score" />
+        </p>
+        <input type="submit" value="Сохранить">
+    </form>
+    <h2>Отзывы</h2>
+
+
+
+
+   <table>
+        <thead><th>Id</th><th>Имя</th><th>Отзыв</th><th>Оценка</th></thead>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ review.id }}</td>
+            <td>{{ review.name }}</td>
+            <td>{{ review.description }}</td>
+            <td>{{ review.score }}</td>
+            <td><a href="edit/{{review.id}}">Изменить</a> | <a href="delete/{{review.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
