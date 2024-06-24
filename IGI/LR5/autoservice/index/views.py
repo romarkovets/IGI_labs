@@ -4,7 +4,9 @@ import requests
 
 
 def index(request):
-    latest_news = Article.objects.latest()
+    if Article.objects.all().count() != 0:
+        latest_news = Article.objects.latest()
+
     cat_api_data = get_cat_api()
     dog_api_data = get_dog_api()
 

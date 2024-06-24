@@ -1,3 +1,6 @@
+import matplotlib
+
+
 def validate_positive_float():
     while True:
         try:
@@ -41,3 +44,12 @@ def validate_int_in_range(a, b):
         except ValueError:
             print("Invalid input: your number needs to be an integer between {} and {}, try again".format(a, b))
 
+
+def validate_color(text):
+    while True:
+        try:
+            val = input(text)
+            if matplotlib.colors.to_rgba(val):
+                return val
+        except ValueError:
+            print("Ошибка: такого цвета не существует")
