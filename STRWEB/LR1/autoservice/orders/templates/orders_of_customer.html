@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Ваши заказы:</h1>
+
+     {% for order in orders %}
+        <div>
+
+            <h2>Заказ:</h2>
+
+            <ol>
+            {% for service in order.services.all %}
+                 <li>{{service.name}}</li>
+            {% endfor %}
+            </ol>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

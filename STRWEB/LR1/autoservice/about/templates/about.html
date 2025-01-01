@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+<h1>О компании</h1>
+{% block content %}
+    {% for info in company_infos %}
+        <div>
+            <h2>{{info.title}}</h2>
+            <p>{{info.description}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

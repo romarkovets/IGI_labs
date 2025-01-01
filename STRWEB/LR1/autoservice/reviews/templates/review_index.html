@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <head>
+        <meta charset="utf-8" />
+        <title>Отзывы</title>
+    </head>
+    <body>
+        <a href="/reviews/create">
+        <button>Оставить отзыв</button>
+        </a>
+        {% if reviews.count > 0 %}
+        <h2>Отзывы</h2>
+        <table>
+            <thead><th>Описание</th><th>Никнейм</th><th>Оценка</th><th>Дата</th></thead>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.description }}</td>
+                <td>{{ review.user.username }}</td>
+                <td>{{ review.score }}</td>
+                <td>{{ review.created_at }}</td>
+                {% if user.is_authenticated and review.user == user or user.is_staff%}
+                <td><a href="edit/{{review.id}}">Изменить</a> | <a href="delete/{{review.id}}">Удалить</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </body>
+{% endblock %}

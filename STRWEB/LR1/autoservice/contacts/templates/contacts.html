@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+<h1>Контакты</h1>
+{% block content %}
+    {% for employee in employees %}
+        <div>
+            <h2>{{employee.user.full_name}}</h2>
+            <img src="{{employee.photo.url }}" alt="News image" width="200" height="200"> <br>
+            <p>Деятельность: {{employee.list_of_jobs}}</p>
+            <p>E-mail: {{employee.user.email}}</p>
+            <p>Телефон: {{employee.user.phone}}</p>
+            <p>График работы: {{employee.schedule}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
