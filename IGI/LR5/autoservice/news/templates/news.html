@@ -6,7 +6,12 @@
         <div>
             <h2>{{news_item.title}}</h2>
             <img src="{{news_item.photo.url }}" alt="News image" width="300" height="200">
-            <p>{{news_item.text}}</p>
+            <p>
+                {{news_item.heading}}
+                <a href="/article/{{ news_item.id }}">
+                    <button>Перейти к статье</button>
+                </a>
+            </p>
         </div>
     {% endfor %}
 {% endblock %}

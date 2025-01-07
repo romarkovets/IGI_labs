@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Скидки</h1>
+    {% for discount in discounts %}
+        <div>
+            <p> <b>Название:</b> {{discount.name}}</p>
+            <p> <b>Описание:</b> {{discount.description}} </p>
+            <p> <b> Скидка:</b> {{discount.discount}} % </p>
+            <br>
+        </div>
+    {% endfor %}
+{% endblock %}

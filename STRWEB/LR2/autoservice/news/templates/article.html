@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>{{article.title}}</h1>
+    <article>
+        <img src="{{article.photo.url}}" alt="News image" width="300" height="200">
+        <h2>{{article.heading}} </h2>
+        <p>{{article.text}}</p>
+        <p> {{news_item.heading}} </p>
+    </article>
+    <a href="/news">
+        <button>Назад</button>
+    </a>
+{% endblock %}

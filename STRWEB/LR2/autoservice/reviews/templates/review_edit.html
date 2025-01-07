@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block header %}
+    Изменить отзыв
+{% endblock header %}
+{% block content %}
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- автоматически выводит все поля формы, обернутые в <p> -->
+            <button type="submit">Отправить</button>
+        </form>
+<!--        <form method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <p>-->
+<!--                <label>Введите содержание</label><br>-->
+<!--                <input type="text" name="description" value="{{review.description}}" />-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                <label>Введите оценку от 1 до 10</label><br>-->
+<!--                <input type="number" name="score" value="{{review.score}}" />-->
+<!--            </p>-->
+<!--            <input type="submit" value="Изменить" >-->
+<!--        </form>-->
+    </body>
+{% endblock %}

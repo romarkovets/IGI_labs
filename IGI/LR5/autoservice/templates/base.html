@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>{% block title %}АвтоСервис Маркокекс{% endblock title %}</title>
-</head>
-<body>
-    <div><a href="/">Главная</a>
-        | <a href="/about">О компании</a>
-        | <a href="/news">Новости</a>
-        | <a href="/faq">FAQ </a>
-        | <a href="/contacts">Контакты </a>
-        | <a href="/privacy">Политика конфиденциальности </a>
-        | <a href="/vacancies">Вакансии </a>
-        | <a href="/reviews">Отзывы </a>
-        | <a href="/discounts">Промокоды </a>
-        | <a href="/services">Услуги </a>
-        {% if user.is_authenticated %}
-            {% if user.staff %}
-            | <a href="/employeeorders">Заказы </a>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}АвтоСервис Маркокекс{% endblock title %}</title>
+    </head>
+    <body>
+        <div><a href="/">Главная</a>
+            | <a href="/about">О компании</a>
+            | <a href="/news">Новости</a>
+            | <a href="/faq">FAQ </a>
+            | <a href="/contacts">Контакты </a>
+            | <a href="/privacy">Политика конфиденциальности </a>
+            | <a href="/vacancies">Вакансии </a>
+            | <a href="/reviews">Отзывы </a>
+            | <a href="/discounts">Промокоды </a>
+            | <a href="/services">Услуги </a>
+            {% if user.is_authenticated %}
+                {% if user.is_employee %}
+                {% else %}
+                | <a href="/customerorders">Заказы </a>
+                {% endif %}
+                | <a href="/logout">Выход </a>
             {% else %}
-            | <a href="/customerorders">Заказы </a>
+                | <a href="/login">Вход </a>
+                | <a href="/registration">Регистрация </a>
             {% endif %}
-            | <a href="/logout">Выход </a>
-        {% else %}
-            | <a href="/login">Вход </a>
-            | <a href="/registration">Регистрация </a>
-        {% endif %}
 
-    </div>
+        </div>
 
 
-    <h1>{% block header %}{% endblock header %}</h1>
-    <div>{% block content%}{% endblock content %}</div>
-</body>
+        <h1>{% block header %}{% endblock header %}</h1>
+        <div>{% block content%}{% endblock content %}</div>
+    </body>
 </html>

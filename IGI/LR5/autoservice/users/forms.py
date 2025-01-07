@@ -90,10 +90,10 @@ class SignUpForm(UserCreationForm):
         )
     )
 
-    staff = forms.ChoiceField(choices=((False, "Покупатель"), (True, "Работник")))
+    is_employee = forms.ChoiceField(choices=((False, "Покупатель"), (True, "Работник")))
 
     class Meta:
         model = CustomUser
         fields = ('username', 'password1', 'password2', 'first_name', 'last_name',
-                  'email', 'phone', 'date_of_birth', 'staff')
+                  'email', 'phone', 'date_of_birth', 'is_employee')
 

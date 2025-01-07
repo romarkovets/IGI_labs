@@ -22,6 +22,7 @@ def get_cat_api():
     else:
         return None
 
+
 def get_dog_api():
     response = requests.get("https://dog.ceo/api/breeds/image/random")
     if response.status_code == 200:

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block header %}Вакансии{% endblock header %}
+
+{% block content %}
+    <hr>
+    {% for vacancy in vacancies %}
+        <div class="vacancy">
+            <h2>Должность:</h2>
+            <p>{{vacancy.position}}</p>
+            <h2>Описание:</h2>
+            <p>{{vacancy.description}}</p>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

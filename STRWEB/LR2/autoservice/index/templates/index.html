@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block header %}Главная{% endblock header %}
+
+{% block content %}
+
+    <nav>
+        <h2> Навигация по странице: </h2>
+        <ul>
+            <li> <a href="#logo">Логотип компании</a> <br> </li>
+            <li> <a href="#banners">Рекламные баннеры</a> <br> </li>
+            <li> <a href="#services">Предоставляемые услуги</a> <br> </li>
+            <li> <a href="#latest-news"> Последние новости</a> <br> </li>
+            <li> <a href="#API">Использование API на сайте</a> <br> </li>
+            <li> <a href="#iframe">Использование iframe на сайте</a> <br> </li>
+            <li> <a href="#audio">Использование аудио на сайте</a> <br> </li>
+        </ul>
+    </nav>
+
+    <section id="logo">
+        <h2>Логотип компании: </h2>
+        <img src="static/logo.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+    </section>
+
+    <section id="banners">
+        <h2>Наши рекламные баннеры: </h2>
+        <img src="static/banner1.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+        <img src="static/banner2.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+        <img src="static/banner3.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+    </section>
+
+
+    <section id="services">
+        <h2>Предоставляемые услуги: </h2>
+        <ol>
+            {% for service in services %}
+                <li>{{ service.name }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+
+
+    <section id="latest-news">
+        <h2>Последние новости:  {{latest_news.title}} </h2>
+        <img src="{{latest_news.photo.url }}"
+            style="max-width: 300px; max-height: 300px;" alt="Последняя новость">
+    </section>
+
+
+    <section id="services">
+        <h2>Наши партнёры:</h2>
+        {% for partner in partners %}
+            <figure class="partner">
+                <a href="{{ partner.url }}" target="_blank">
+                    <img src="{{ partner.logo.url }}" style="max-width: 100px; max-height: 100px;" alt="{{ partner.name }} logo">
+
+                </a>
+                <figcaption>{{ partner.name }}</figcaption>
+            </figure>
+        {% endfor %}
+    </section>
+
+
+    <section id="API">
+        <h2>API: </h2>
+        {% if user.is_authenticated %}
+            <p> Случайный факт про <strong>кошек</strong>: {{cat_api_data.fact}}</p>
+        {% endif %}
+        <p> Случайное фото <em>собаки</em>: </p>
+        <img src="{{dog_api_data.message}}" alt="News image" width="200" height="200"> <br>
+    </section>
+
+
+    <section id="iframe">
+        <h2>iframe: </h2>
+        <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yE4Rlp0OeVc?si=UNDQFWBGHwUmrNzt"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+        <br>
+    </section>
+
+
+    <section id="audio">
+        <h2>audio: </h2>
+        <audio src="static/song.mp3" controls>
+            Ваш браузер не поддерживает элемент audio.
+        </audio>
+        <br>
+        <a href="static/song.mp3" download>Скачать эту песню</a>
+    </section>
+
+
+
+{% endblock content %}

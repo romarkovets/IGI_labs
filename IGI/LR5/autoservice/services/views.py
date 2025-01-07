@@ -3,6 +3,7 @@ import re
 from .models import Service
 from .forms import SearchForm
 
+
 def services_view(request):
     services = Service.objects.all()
     if "text" in request.GET:

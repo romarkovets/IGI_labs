@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Подтверждение оплаты</h1>
+<p><b>Услуга:</b> {{ order.service.name }}</p>
+<p><b>Описание:</b> {{ order.service.description }}</p>
+<p><b>Количество:</b> {{ order.quantity }}</p>
+<p><b>Итоговая цена:</b> {{ order.total_cost }} бел.руб.</p>
+
+<form method="POST" action="{% url 'confirm_payment' order.id %}">
+    {% csrf_token %}
+    <button type="submit" style="background-color: green; color: white;">Подтвердить оплату</button>
+</form>
+{% endblock %}
