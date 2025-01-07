@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
-<h1>Частые вопросы</h1>
+{% block header %}Частые вопросы{% endblock header %}
 {% block content %}
     {% for faq in faqs %}
         <div>
             <details>
-            <summary> <strong> Вопрос: </strong> {{faq.question}}</summary>
-            <p><strong>Ответ:</strong> {{faq.answer}}</p>
-            <p><b>Дата добавления: </b> {{faq.date}}</p>
+                <summary>
+                    <strong> Вопрос: </strong> {{faq.question}}
+                </summary>
+                <p><strong>Ответ:</strong> {{faq.answer}}</p>
+                <p><strong>Дата добавления: </strong> {{faq.date}}</p>
             </details>
         </div>
     {% endfor %}

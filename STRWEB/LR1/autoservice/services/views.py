@@ -17,3 +17,9 @@ def services_view(request):
 
     return render(request, 'services.html', {'services': services,
                                              "search_form": search_form})
+
+
+def service_view(request, id):
+    _service = Service.objects.get(id=id)
+    return render(request, 'service.html', {"service": _service})
+

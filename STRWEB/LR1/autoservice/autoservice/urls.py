@@ -15,9 +15,9 @@ from contacts.views import contacts_view
 # from reviews.views import reviews_view
 from reviews.views import review_index, review_create, review_edit, review_delete
 
-from services.views import services_view
+from services.views import services_view, service_view
 from discounts.views import discounts_view
-from orders.views import customer_view
+from orders.views import customer_view, create_order, update_quantity, delete_order, confirm_payment, pay_order
 
 
 urlpatterns = [
@@ -40,8 +40,17 @@ urlpatterns = [
     path("reviews/delete/<int:id>/", review_delete),
 
 
-    path('services/', services_view, name="service"),
     path('customerorders/', customer_view, name="customer_view"),
+    path('update_quantity/<int:order_id>/', update_quantity, name='update_quantity'),
+    path('create_order/', create_order, name="create_order"),
+    path('delete_order/<int:order_id>/', delete_order, name='delete_order'),
+    path('pay_order/<int:order_id>/', pay_order, name='pay_order'),
+    path('confirm_payment/<int:order_id>/', confirm_payment, name='confirm_payment'),
+
+    path('services/', services_view, name="services"),
+    path('service/<int:id>', service_view, name="service"),
+
+
     path('discounts/', discounts_view, name="discounts"),
 
     path("", index),

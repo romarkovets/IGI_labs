@@ -8,5 +8,12 @@ from users.models import Customer, Employee
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    services = models.ManyToManyField(Service, blank=True)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    is_received = models.BooleanField(default=False)
+
+    @property
+    def total_cost(self):
+        return self.quantity * self.service.cost
+
 

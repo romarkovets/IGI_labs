@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Partner(models.Model):
+    name = models.CharField(max_length=50)
+    logo = models.ImageField(upload_to='static/partner_logos/')
+    url = models.URLField()

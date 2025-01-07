@@ -5,6 +5,7 @@ from .models import CustomUser
 
 class LoginForm(forms.Form):
     username = forms.CharField(
+        label='Логин',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -13,6 +14,7 @@ class LoginForm(forms.Form):
         )
     )
     password = forms.CharField(
+        label='Пароль',
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
@@ -24,6 +26,7 @@ class LoginForm(forms.Form):
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(
+        label='Логин',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -32,6 +35,7 @@ class SignUpForm(UserCreationForm):
         )
     )
     password1 = forms.CharField(
+        label='Пароль',
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
@@ -40,6 +44,7 @@ class SignUpForm(UserCreationForm):
         )
     )
     password2 = forms.CharField(
+        label='Повторите пароль',
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
@@ -48,22 +53,25 @@ class SignUpForm(UserCreationForm):
         )
     )
     email = forms.EmailField(
+        label='Электронная почта',
         widget=forms.EmailInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Введите почту'
+                'placeholder': 'X@X.X'
             }
         )
     )
     phone = forms.CharField(
+        label='Телефон',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Введите телефон'
+                'placeholder': '+375 (29) XXX-XX-XX'
             }
         )
     )
     first_name = forms.CharField(
+        label='Имя',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -72,6 +80,7 @@ class SignUpForm(UserCreationForm):
         )
     )
     last_name = forms.CharField(
+        label='Фамилия',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
@@ -81,6 +90,7 @@ class SignUpForm(UserCreationForm):
     )
 
     date_of_birth = forms.DateField(
+        label='Дата рождения',
         widget=forms.DateInput(
             attrs={
                 'class': 'form-control',
@@ -90,10 +100,14 @@ class SignUpForm(UserCreationForm):
         )
     )
 
-    is_employee = forms.ChoiceField(choices=((False, "Покупатель"), (True, "Работник")))
+    is_employee = forms.ChoiceField(
+        label='Статус',
+        choices=((False, "Покупатель"), (True, "Работник"))
+    )
+
+    usable_password = None
 
     class Meta:
         model = CustomUser
         fields = ('username', 'password1', 'password2', 'first_name', 'last_name',
                   'email', 'phone', 'date_of_birth', 'is_employee')
-

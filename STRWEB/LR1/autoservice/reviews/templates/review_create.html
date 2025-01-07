@@ -1,9 +1,8 @@
 {% extends "base.html" %}
+{% block header %}
+    Добавить отзыв
+{% endblock header %}
 {% block content %}
-    <head>
-        <meta charset="utf-8" />
-        <title>Добавить отзыв</title>
-    </head>
     <body>
         <form method="POST">
             {% csrf_token %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
+{% block header %}Регистрация{% endblock header %}
 
 {% block content %}
-    <h1>Регистрация</h1>
     <div class="login-form">
         <form  method="post">
             {% csrf_token %}
@@ -18,9 +18,9 @@
             </table>
             {% endif %}
 
+
             {{ form.as_p }}
-
-
+        
 
             <button class="form-control" type="submit">Добавить пользователя</button>
         </form>

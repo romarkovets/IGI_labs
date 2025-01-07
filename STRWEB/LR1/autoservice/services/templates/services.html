@@ -1,18 +1,21 @@
+<!DOCTYPE html>
 {% extends "base.html" %}
+{% block header %}Доступные услуги{% endblock header %}
 
-<h1>Доступные услуги</h1>
 {% block content %}
          <h2>Поиск и сортировка:</h2>
          <form>
             {{ search_form.as_p }}
             <br>
             <button class="form-control" type="submit">Найти</button>
-        </form>
+         </form>
     {% for service in services %}
-        <div>
-            <p> <b>Услуга:</b> {{service.name}}</p>
-            <p> <b>Описание:</b> {{service.description}} </p>
-            <p> <b> Цена:</b> {{service.cost}} бел.руб. </p>
+        <div itemscope itemtype="https://schema.org/Product">
+            <p itemprop="name"> <b>Услуга:</b> {{service.name}}</p>
+            <p itemprop="price"> <b> Цена:</b> {{service.cost}} бел.руб. </p>
+            <a href="/service/{{ service.id }}">
+                    <button>Подробнее</button>
+            </a>
             <br>
         </div>
     {% endfor %}
