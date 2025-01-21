@@ -9,10 +9,15 @@
         {% load static %}
         <link rel="shortcut icon" type="image/png" href="{% static 'logo.png' %}">
         <title>АвтоСервис Маркокекс</title>
+        <style>
+            @import url("{% static 'css/base.css' %}");
+            {% block style %}
+            {% endblock %}
+        </style>
     </head>
     <body>
         <header>
-            <nav>
+            <nav class="menu">
                 <a href="/">Главная</a>
                 | <a href="/about">О компании</a>
                 | <a href="/news">Новости</a>
@@ -41,7 +46,6 @@
         <div>{% block content%}{% endblock content %}</div>
 
         <footer lang="en">
-            <br>
             ©2025 Autoservice Markokeks. All rights reserved.
         </footer>
     </body>

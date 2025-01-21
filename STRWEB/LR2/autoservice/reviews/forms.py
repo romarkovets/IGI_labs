@@ -4,6 +4,7 @@ from .models import Review
 
 class ReviewForm(forms.ModelForm):
     description = forms.CharField(
+        label='Содержание',
         widget=forms.Textarea(
             attrs={
                 'class': 'form-control',
@@ -12,6 +13,7 @@ class ReviewForm(forms.ModelForm):
         )
     )
     score = forms.IntegerField(
+        label='Оценка',
         min_value=1,
         max_value=10,
         widget=forms.NumberInput(

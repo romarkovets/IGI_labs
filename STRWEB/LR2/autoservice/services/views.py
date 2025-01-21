@@ -9,6 +9,7 @@ def services_view(request):
     if "text" in request.GET:
         services = filter(lambda x: re.search(request.GET["text"], x.name), services)
     search_form = SearchForm()
+
     services = list(services)
     if "sorting" in request.GET and request.GET["sorting"] == "2":
         services.sort(key=lambda x: x.cost, reverse=True)

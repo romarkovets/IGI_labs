@@ -2,21 +2,28 @@
 {% extends "base.html" %}
 {% block header %}Доступные услуги{% endblock header %}
 
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/services.css' %}")
+{% endblock %}
+
 {% block content %}
-         <h2>Поиск и сортировка:</h2>
-         <form>
-            {{ search_form.as_p }}
-            <br>
-            <button class="form-control" type="submit">Найти</button>
-         </form>
+<h2>Поиск и сортировка:</h2>
+<form>
+    {{ search_form.as_p }}
+    <br>
+    <button class="form-control" type="submit">Найти</button>
+</form>
+
+<div class="services-grid">
     {% for service in services %}
         <div itemscope itemtype="https://schema.org/Product">
-            <p itemprop="name"> <b>Услуга:</b> {{service.name}}</p>
-            <p itemprop="price"> <b> Цена:</b> {{service.cost}} бел.руб. </p>
+            <p itemprop="name"> <b>Услуга:</b> {{ service.name }}</p>
+            <p itemprop="price"> <b>Цена:</b> {{ service.cost }} бел.руб.</p>
             <a href="/service/{{ service.id }}">
-                    <button>Подробнее</button>
+                <button>Подробнее</button>
             </a>
-            <br>
         </div>
     {% endfor %}
+</div>
 {% endblock %}

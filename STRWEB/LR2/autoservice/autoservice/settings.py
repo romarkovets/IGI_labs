@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     'index',
     'users',
     'news',
+    'privacy',
     'faq',
     'vacancies',
     'about',
-    'privacy',
     'contacts',
     'reviews',
     'services',
@@ -135,7 +135,7 @@ STATICFILES_DIRS = [
 ]
 AUTH_USER_MODEL = "users.CustomUser"
 MEDIA_URL = 'media/'
-# MEDIA_ROOT = BASE_DIR / 'media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

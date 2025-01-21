@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block header %}О компании{% endblock header %}
 
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/about.css' %}")
+{% endblock %}
+
 {% block content %}
 
     <nav>
@@ -19,7 +24,8 @@
 
     <section id="logo">
         <h2>Логотип компании: </h2>
-        <img src="/static/logo.png" style="max-width: 200px; max-height: 200px;" alt="{{ partner.name }} logo">
+        <img src="/static/logo.png" style="max-width: 200px; max-height: 200px;" alt="{{ partner.name }} logo"
+        width="300" height="300">
     </section>
 
 
@@ -31,22 +37,23 @@
             </dfn>
             занимается ремонтом, диагностикой, очисткой, куплей и продажей автомобилей и других
             средств перемещения.</p>
-        <p>Мы славимся своей репутацией на рынке, а также принципом
-            <abbr title="Нормально делай - нормально будет">НДНБ</abbr>.</p>
-        <p>Как говорит наш директор:
-            <q lang="ru">Если клиент пришел второй раз, то это наша ошибка!</q>.
+        <p> Мы славимся своей репутацией на рынке, а также принципом
+            <abbr title="Нормально делай - нормально будет">НДНБ</abbr>. </p>
+        <p> Как говорит наш директор:
+            <q lang="ru">Если клиент пришел второй раз, то это наша ошибка!</q>,
+            или же:
+            <q lang="en">If the customer came a second time, it is our fault!</q>.
             <time datetime="2025-01-01T11:10:00"> (1 января 2025 года, 11:10)</time>
         </p>
-        <div>
+        <p>
             Если тачка поломалась, <br>
             или корпус сломан весь, <br>
             то тебе поможет точно <br>
             Автосервис Маркокекс! <br>
-        </div>
-        <br>
-        <div>
+        </p>
+        <p>
             Если тачка поломалась, <wbr>или корпус сломан весь, <wbr> то тебе поможет точно <wbr> Автосервис Маркокекс! <wbr>
-        </div>
+        </p>
 
     </section>
 
@@ -109,7 +116,7 @@
 
     <section id="requisites">
         <h2>Реквизиты</h2>
-        <p> Номер лицевого счета для оплаты: 1111 2222 3333 4444</p>
+        <p class="number-of-card"> Номер лицевого счета для оплаты: 1111 2222 3333 4444</p>
     </section>
 
 {% endblock %}

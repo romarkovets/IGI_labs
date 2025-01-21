@@ -3,6 +3,11 @@
     Отзывы
 {% endblock header %}
 
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/review_index.css' %}")
+{% endblock %}
+
 {% block content %}
     <body>
         <a href="/reviews/create"> <button>Оставить отзыв</button> </a>
@@ -16,6 +21,7 @@
                         <th>Никнейм</th>
                         <th>Оценка</th>
                         <th>Дата</th>
+                        <th></th>
                     </tr>
                 </thead>
                 {% for review in reviews %}
@@ -24,9 +30,12 @@
                         <td>{{ review.user.username }}</td>
                         <td>{{ review.score }}</td>
                         <td>{{ review.created_at }}</td>
-                        {% if user.is_authenticated and review.user == user or user.is_staff%}
-                            <td><a href="edit/{{review.id}}">Изменить</a> | <a href="delete/{{review.id}}">Удалить</a></td>
-                        {% endif %}
+                        <td>
+                            {% if user.is_authenticated and review.user == user or user.is_staff%}
+                                <a href="edit/{{review.id}}">Изменить</a> | <a href="delete/{{review.id}}">Удалить</a>
+                            {% endif %}
+                        </td>
+
                     </tr>
                 {% endfor %}
             </table>

@@ -33,7 +33,7 @@ urlpatterns = [
     path('privacy/', privacy_view, name="privacy"),
     path('contacts/', contacts_view, name="contacts"),
 
-    # path('reviews/', index, name="reviews"),
+
     path("reviews/", review_index),
     path("reviews/create/", review_create),
     path("reviews/edit/<int:id>/", review_edit),

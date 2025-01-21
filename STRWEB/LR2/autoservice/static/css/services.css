@@ -1,0 +1,62 @@
+form {
+    margin-bottom: 20px;
+}
+
+form .form-control {
+    display: block;
+    margin: 10px 0;
+}
+
+/* Общий контейнер для всех услуг */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Отступы между карточками */
+    margin-top: 20px;
+}
+
+/* Карточка отдельной услуги */
+.services-grid div {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+/* При наведении карточка слегка увеличивается */
+.services-grid div:hover {
+    transform: scale(1.05);
+}
+
+/* Название услуги */
+.services-grid p[itemprop="name"] {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Цена услуги */
+.services-grid p[itemprop="price"] {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Кнопка "Подробнее" */
+.services-grid a button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.services-grid a button:hover {
+    background-color: #0056b3;
+}

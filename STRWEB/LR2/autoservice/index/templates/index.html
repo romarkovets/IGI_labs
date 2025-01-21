@@ -1,25 +1,45 @@
 {% extends "base.html" %}
 {% block header %}Главная{% endblock header %}
 
-{% block content %}
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/index.css' %}")
+{% endblock %}
 
+{% block content %}
     <nav>
         <h2> Навигация по странице: </h2>
         <ul>
-            <li> <a href="#logo">Логотип компании</a> <br> </li>
+            <li> <a href="#logo">Логотипы компании</a> <br> </li>
             <li> <a href="#banners">Рекламные баннеры</a> <br> </li>
             <li> <a href="#services">Предоставляемые услуги</a> <br> </li>
             <li> <a href="#latest-news"> Последние новости</a> <br> </li>
             <li> <a href="#API">Использование API на сайте</a> <br> </li>
             <li> <a href="#iframe">Использование iframe на сайте</a> <br> </li>
             <li> <a href="#audio">Использование аудио на сайте</a> <br> </li>
+            <li> <a href="#listing">Листинг</a> <br> </li>
         </ul>
     </nav>
 
+    <h2>Логотипы компании: </h2>
     <section id="logo">
-        <h2>Логотип компании: </h2>
         <img src="static/logo.png"
              style="max-width: 200px; max-height: 200px;" alt="">
+
+        <div class="car">
+          <div class="car-body">
+            <div class="windows"></div>
+            <div class="door"></div>
+          </div>
+          <div class="wheel front-wheel"></div>
+          <div class="wheel back-wheel"></div>
+          <div class="headlights">
+            <div class="headlight right"></div>
+          </div>
+          <div class="company-name">Автосервис&nbsp;Маркокекс</div>
+        </div>
+</svg>
+
     </section>
 
     <section id="banners">
@@ -37,7 +57,7 @@
         <h2>Предоставляемые услуги: </h2>
         <ol>
             {% for service in services %}
-                <li>{{ service.name }}</li>
+                <li class="services"> <span> {{ service.name }} </span> </li>
             {% endfor %}
         </ol>
     </section>
@@ -50,13 +70,12 @@
     </section>
 
 
-    <section id="services">
+    <section id="partner-section">
         <h2>Наши партнёры:</h2>
         {% for partner in partners %}
             <figure class="partner">
                 <a href="{{ partner.url }}" target="_blank">
                     <img src="{{ partner.logo.url }}" style="max-width: 100px; max-height: 100px;" alt="{{ partner.name }} logo">
-
                 </a>
                 <figcaption>{{ partner.name }}</figcaption>
             </figure>
@@ -85,7 +104,6 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
         </iframe>
-        <br>
     </section>
 
 
@@ -94,10 +112,49 @@
         <audio src="static/song.mp3" controls>
             Ваш браузер не поддерживает элемент audio.
         </audio>
-        <br>
-        <a href="static/song.mp3" download>Скачать эту песню</a>
+        <a href="static/song.mp3" download> <p>Скачать эту песню </p></a>
     </section>
 
+
+    <section id="listing">
+        <h2>Листинг: </h2>
+        <code> <pre>
+            double infix(double x)
+{
+  char op;
+  if (cin >> op)
+  {
+    double y;
+    if (cin >> y)
+    {
+      switch (op)
+      {
+      case '+': return infix(x + y);
+      case '-': return infix(x - y);
+      case '*': return infix(x * y);
+      case '/': return infix(x / y);
+      default:
+        cerr << "unknown operation '" << op << "'\n";
+        return x;
+      }
+    }
+    else
+      cerr << "number expected\n";
+  }
+
+  return x;
+}
+
+double infix()
+{
+  double x;
+  if (cin >> x)
+    return infix(x);
+
+  cerr << "number expected\n";
+  return 0.;
+            } </pre></code>
+    </section>
 
 
 {% endblock content %}

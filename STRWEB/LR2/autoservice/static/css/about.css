@@ -1,0 +1,79 @@
+#logo img {
+    transform: rotate(6deg);
+}
+
+table {
+    width: 80%; /* Ширина таблицы */
+    margin: 20px auto; /* Центрируем таблицу */
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    table-layout: fixed; /* Устанавливаем фиксированную ширину столбцов */
+}
+
+
+caption {
+    font-size: 1.5em; /* Размер шрифта для заголовка */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 10px; /* Отступ снизу */
+    text-align: center; /* Центрируем заголовок */
+}
+
+
+th {
+    background-color: #4CAF50; /* Зеленый фон для заголовков */
+    color: white; /* Белый цвет текста */
+    font-weight: bold; /* Жирный шрифт */
+    padding: 10px; /* Отступы внутри ячеек */
+    text-align: center; /* Горизонтальное выравнивание */
+    vertical-align: middle; /* Вертикальное выравнивание */
+}
+
+
+td {
+    padding: 10px; /* Отступы внутри ячеек */
+    text-align: center; /* Горизонтальное выравнивание */
+    vertical-align: middle; /* Вертикальное выравнивание */
+    border: 1px solid #ddd; /* Легкая граница вокруг ячеек */
+}
+
+
+td:empty {
+    background-color: #f9f9f9; /* Светлый фон для пустых ячеек */
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Светлый фон для четных строк */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Белый фон для нечетных строк */
+}
+
+
+td:hover {
+    background-color: #ddd; /* Серая подсветка строки при наведении */
+}
+
+section q:lang(en) {
+    quotes: '"' '"';
+}
+
+section q:lang(ru) {
+    quotes: "«" "»";
+}
+
+p::before {
+    content: "<";
+    color: red;
+    font-weight: 800;
+}
+
+p::after {
+    content: ">";
+    color: red;
+    font-weight: 800;
+}
+
+p.number-of-card {
+    font-family: "Cambria Math", serif;
+}

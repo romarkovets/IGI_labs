@@ -1,29 +1,64 @@
 {% extends "base.html" %}
 {% block header %}Регистрация{% endblock header %}
 
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/registration.css' %}")
+{% endblock %}
+
 {% block content %}
-    <div class="login-form">
+    <div class="register-form">
         <form  method="post">
             {% csrf_token %}
 
-            {% if messages %}
-            <table class="messages-table">
-                <thead>
-                    {% for message in messages %}
-                    <tr>
-                        <th> {{ message }}</th>
-                    </tr>
-                    {% endfor %}
-                </thead>
-            </table>
-            {% endif %}
+            <p>
+                <label for="{{ form.username.id_for_label }}">Логин</label>
+                {{ form.username }}
+            </p>
+
+            <p>
+                <label for="{{ form.password1.id_for_label }}">Пароль</label>
+                {{ form.password1 }}
+            </p>
+
+            <p>
+                <label for="{{ form.password2.id_for_label }}">Повторите пароль</label>
+                {{ form.password2 }}
+            </p>
+
+            <p>
+                <label for="{{ form.email.id_for_label }}">Электронная почта</label>
+                {{ form.email }}
+            </p>
+
+            <p>
+                <label for="{{ form.phone.id_for_label }}">Телефон</label>
+                {{ form.phone }}
+            </p>
+
+            <p>
+                <label for="{{ form.first_name.id_for_label }}">Имя</label>
+                {{ form.first_name }}
+            </p>
+
+            <p>
+                <label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                {{ form.last_name }}
+            </p>
+
+            <p>
+                <label for="{{ form.date_of_birth.id_for_label }}">Дата рождения</label>
+                {{ form.date_of_birth }}
+            </p>
+
+            <p>
+                <label for="{{ form.is_employee.id_for_label }}">Статус</label>
+                {{ form.is_employee }}
+            </p>
 
 
-            {{ form.as_p }}
-        
 
             <button class="form-control" type="submit">Добавить пользователя</button>
         </form>
-
     </div>
 {% endblock %}
