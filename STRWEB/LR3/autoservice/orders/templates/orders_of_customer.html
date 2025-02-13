@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Корзина:</h1>
+
+    {% for order in orders %}
+        {% if not order.is_received %}
+            <div>
+                <h2>Заказ:</h2>
+                <p><b>Услуга:</b> {{ order.service.name }}</p>
+                <p><b>Описание:</b> {{ order.service.description }}</p>
+
+                <form method="POST" action="{% url 'update_quantity' order.id %}">
+                    {% csrf_token %}
+                    <p><b>Количество:</b>
+                        <input type="number" name="quantity"
+                               value="{{ order.quantity }}"
+                               min="1" max="100" required>
+                    </p>
+                    <button type="submit">Обновить количество</button>
+                </form>
+
+                <form method="POST" action="{% url 'delete_order' order.id %}" style="margin-top: 10px;">
+                    {% csrf_token %}
+                    <button type="submit">Удалить заказ</button>
+                </form>
+
+                <p><b>Цена:</b> {{ order.total_cost }} бел.руб.</p>
+
+                <form method="GET" action="{% url 'pay_order' order.id %}" style="margin-top: 10px;">
+                    <button type="submit" style="background-color: green; color: white;">Оплатить</button>
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <h1>Оплаченные заказы:</h1>
+    {% for order in orders %}
+        {% if order.is_received %}
+            <div>
+                <h2>Заказ:</h2>
+                <p><b>Услуга:</b> {{ order.service.name }}</p>
+                <p><b>Описание:</b> {{ order.service.description }}</p>
+                <p><b>Цена:</b> {{ order.total_cost }} бел.руб.</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

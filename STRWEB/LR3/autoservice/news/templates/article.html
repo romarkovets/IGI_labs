@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block header %} {{article.title}} {% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/article.css' %}")
+{% endblock %}
+
+{% block content %}
+    <article>
+        <img src="{{article.photo.url}}" alt="News image" width="300" height="200">
+        <h2>{{article.heading}} </h2>
+        <p class="text">{{article.text}}</p>
+    </article>
+    <a href="/news">
+        <button>Назад</button>
+    </a>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block header %}Контакты{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/contacts.css' %}")
+{% endblock %}
+
+{% block content %}
+    {% for employee in employees %}
+        <div class="employee">
+            <img src="{{ employee.photo.url }}" alt="Employee image" width="200" height="200"> <br>
+            <div class="text">
+                <h2>{{ employee.user.full_name }}</h2>
+                <p>Деятельность: {{ employee.list_of_jobs }}</p>
+                <p>E-mail: {{ employee.user.email }}</p>
+                <p>Телефон: {{ employee.user.phone }}</p>
+                <p>График работы: {{ employee.schedule }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    <button onclick="toggleForm()">Добавить</button>
+
+    <!-- Форма для добавления данных -->
+    <div id="addForm" class="hidden">
+        <input type="text" id="fullName" placeholder="ФИО">
+        <input type="text" id="photoUrl" placeholder="URL фото" oninput="validateUrl()">
+        <input type="text" id="jobs" placeholder="Описание работ">
+        <input type="text" id="phone" placeholder="Телефон" oninput="validatePhone()">
+        <input type="text" id="email" placeholder="E-mail">
+        <button id="addButton" disabled onclick="addRow()">Добавить в таблицу</button>
+        <p id="validationMessage"></p>
+    </div>
+
+    <input type="text" id="searchBox" placeholder="Поиск">
+    <button onclick="filterTable()">Найти</button>
+
+    <table border="1" id="employeeTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(1)">Фото</th>
+                <th onclick="sortTable(2)">ФИО</th>
+                <th onclick="sortTable(3)">Деятельность</th>
+                <th onclick="sortTable(4)">E-mail</th>
+                <th onclick="sortTable(5)">Телефон</th>
+                <th hidden>Расписание</th> <!-- Скрытый столбец для расписания -->
+                <th><input type="checkbox" onclick="selectAll(this)"></th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            {% for employee in employees %}
+                <tr onclick="showDetails(this)">
+                    <td><img src="{{ employee.photo.url }}" alt="Employee image" width="50" height="50"></td>
+                    <td>{{ employee.user.full_name }}</td>
+                    <td>{{ employee.list_of_jobs }}</td>
+                    <td>{{ employee.user.email }}</td>
+                    <td>{{ employee.user.phone }}</td>
+                    <td hidden>{{ employee.schedule }}</td> <!-- Скрытое поле для расписания -->
+                    <td><input type="checkbox" class="select-employee"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination" id="pagination"></div>
+    <button onclick="rewardEmployees()">Премировать</button>
+    <p id="rewardMessage"></p>
+
+    <div class="preloader" id="preloader" style="display: none">
+<!--        <figure class="circle moving-left" style=""> </figure>-->
+        <figure class="circle moving-right" style="left: 30px; top: 45px;"></figure>
+        <figure class="circle moving-right" style="left: 60px; top: 45px;"> </figure>
+        <figure class="circle moving-right" style="left: 90px; top: 45px;"> </figure>
+        <figure class="circle moving-right" style="left: 120px; top: 45px;"> </figure>
+        <figure class="circle moving-left" style="left: 150px; top: 45px;"> </figure>
+
+    </div>
+
+    <!-- Блок для отображения подробностей выбранного сотрудника -->
+    <div class="employee-details" id="employeeDetails">
+        <h3>Детали сотрудника</h3>
+        <p><strong>Фото:</strong> <img id="detailPhoto" width="100" height="100" alt="Employee photo"></p>
+        <p><strong>ФИО:</strong> <span id="detailFullName"></span></p>
+        <p><strong>Деятельность:</strong> <span id="detailJobs"></span></p>
+        <p><strong>E-mail:</strong> <span id="detailEmail"></span></p>
+        <p><strong>Телефон:</strong> <span id="detailPhone"></span></p>
+        <p><strong>График работы:</strong> <span id="detailSchedule"></span></p> <!-- График работы в блоке -->
+    </div>
+
+    <script src="{% static 'js/contacts.js' %}"></script>
+    <script src="{% static 'js/validate.js' %}"></script>
+{% endblock %}

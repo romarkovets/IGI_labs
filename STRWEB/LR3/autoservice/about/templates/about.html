@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block header %}О компании{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/about.css' %}")
+{% endblock %}
+
+{% block content %}
+
+    <nav>
+        <h2> Навигация по странице: </h2>
+        <ul>
+            <li> <a href="#logo">Логотип компании</a> <br> </li>
+            <li> <a href="#description">Описание компании</a> <br> </li>
+            <li> <a href="#company_infos">Информация о компании</a> <br> </li>
+            <li> <a href="#history">История по годам</a> <br> </li>
+            <li> <a href="#video-banner">Видео баннеры</a> <br> </li>
+            <li> <a href="#sertificates"> Сертификаты</a> <br> </li>
+            <li> <a href="#requisites"> Реквизиты</a> <br> </li>
+        </ul>
+    </nav>
+
+
+    <section id="logo">
+        <h2>Логотип компании: </h2>
+        <img src="/static/logo.png" style="max-width: 200px; max-height: 200px;" alt="{{ partner.name }} logo"
+        width="300" height="300">
+    </section>
+
+
+    <section id="description">
+        <h2>Описание компании: </h2>
+        <p> Наш
+            <dfn title="Cовокупность предприятий, средств, способов и методов предоставления платных услуг по приобретению, эффективному использованию, дорожной и экологической безопасности автотранспортных средств в течение всего срока их службы.">
+                автосервис
+            </dfn>
+            занимается ремонтом, диагностикой, очисткой, куплей и продажей автомобилей и других
+            средств перемещения.</p>
+        <p> Мы славимся своей репутацией на рынке, а также принципом
+            <abbr title="Нормально делай - нормально будет">НДНБ</abbr>. </p>
+        <p> Как говорит наш директор:
+            <q lang="ru">Если клиент пришел второй раз, то это наша ошибка!</q>,
+            или же:
+            <q lang="en">If the customer came a second time, it is our fault!</q>.
+            <time datetime="2025-01-01T11:10:00"> (1 января 2025 года, 11:10)</time>
+        </p>
+        <p>
+            Если тачка поломалась, <br>
+            или корпус сломан весь, <br>
+            то тебе поможет точно <br>
+            Автосервис Маркокекс! <br>
+        </p>
+        <p>
+            Если тачка поломалась, <wbr>или корпус сломан весь, <wbr> то тебе поможет точно <wbr> Автосервис Маркокекс! <wbr>
+        </p>
+
+    </section>
+
+    <section id="company_infos">
+        <h2>Информация о компании: </h2>
+        {% for info in company_infos %}
+            <div>
+                <h3>{{info.title}}</h3>
+                <p>{{info.description}}</p>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section id="history">
+        <h2>История по годам: </h2>
+        <table border="1" >
+          <thead>
+            <tr>
+              <th id="year">Год</th>
+              <th id="changes">Изменения</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td headers="year">2021</td>
+              <td headers="changes" rowspan="3">Сайт не был создан</td>
+            </tr>
+            <tr>
+              <td headers="year">2022</td>
+            </tr>
+            <tr>
+              <td headers="year">2023</td>
+            </tr>
+            <tr>
+              <td headers="year">2024</td>
+              <td headers="changes">Написан бэк</td>
+            </tr>
+            <tr>
+              <td headers="year">2025</td>
+              <td headers="changes">Написан фронт</td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+
+    <section id="video-banner">
+        <h2>Видео баннеры:</h2>
+        <video width="250" controls autoplay muted>
+            <source src="/static/banner.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео-теги.
+        </video>
+    </section>
+
+
+    <section id="sertificates">
+        <h2>Сертификаты</h2>
+        <img src="/static/sertificate.png" style="max-width: 300px; max-height: 300px;" alt="{{ partner.name }} logo">
+
+        <div class="certificate box">
+            <div class="certificate-border">
+                <div class="certificate-content">
+                    <h1>Крутой сертификат </h1>
+                    <p class="recipient-name">Достаётся: <strong>Автосервису Маркокекс!</strong></p>
+                    <p>За выдающиеся заслуги в ремонтном ремесле.</p>
+                    <p class="date">22 января, 2025</p>
+                    <div class="signature">
+                        <span>Директор мира</span>
+                        <span>Заместитель</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="requisites">
+        <h2>Реквизиты</h2>
+        <p class="number-of-card"> Номер лицевого счета для оплаты: 1111 2222 3333 4444</p>
+    </section>
+
+    <div class="preloader">
+<!--        <figure class="circle moving-left" style=""> </figure>-->
+        <figure class="circle moving-right" style="left: 30px; top: 45px;"> </figure>
+        <figure class="circle moving-right" style="left: 60px; top: 45px;"> </figure>
+        <figure class="circle moving-right" style="left: 90px; top: 45px;"> </figure>
+        <figure class="circle moving-right" style="left: 120px; top: 45px;"> </figure>
+        <figure class="circle moving-left" style="left: 150px; top: 45px;"> </figure>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem; /* Крупный размер текста */
+    font-weight: bold;
+    color: #333; /* Темно-серый цвет текста */
+    padding: 20px 40px;
+    border-radius: 15px; /* Закругленные углы */
+    transition: color 0.3s ease; /* Плавное изменение цвета текста */
+}

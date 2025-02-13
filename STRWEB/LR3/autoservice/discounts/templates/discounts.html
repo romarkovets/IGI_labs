@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block header %}Скидки{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/discounts.css' %}")
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for discount in discounts %}
+            <li>
+                <block>
+                    <strong>Название:</strong> {{discount.name}}
+                <p> <strong>Описание:</strong> {{discount.description}} </p>
+                <p> <strong> Скидка:</strong> {{discount.discount}} % </p>
+                </block>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

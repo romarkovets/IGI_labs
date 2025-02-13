@@ -1,0 +1,10 @@
+.news {
+    columns: 300px 3;
+}
+
+
+.article-heading {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

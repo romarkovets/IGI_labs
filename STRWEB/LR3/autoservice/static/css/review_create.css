@@ -1,0 +1,19 @@
+[for^="id"] {
+    color: blue;
+}
+
+[for^="id"]:hover {
+    color: red;
+}
+
+[id^="id"] {
+    color: green;
+}
+
+[id^="id"]:hover {
+    color: red;
+}
+
+.form-group textarea{
+    background-color: magenta;
+}

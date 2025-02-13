@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block header %}Вакансии{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/vacancies.css' %}")
+{% endblock %}
+
+{% block content %}
+    {% for vacancy in vacancies %}
+        <div class="vacancy">
+            <div class="vacancy-column">
+                <h2>Должность:</h2>
+                <p>{{vacancy.position}}</p>
+            </div>
+            <div class="vacancy-column">
+                <h2>Описание:</h2>
+                <p>{{vacancy.description}}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

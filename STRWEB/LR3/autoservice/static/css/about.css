@@ -1,0 +1,238 @@
+#logo img {
+    transform: rotate(6deg);
+}
+
+table {
+    width: 80%; /* Ширина таблицы */
+    margin: 20px auto; /* Центрируем таблицу */
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    table-layout: fixed; /* Устанавливаем фиксированную ширину столбцов */
+}
+
+
+caption {
+    font-size: 1.5em; /* Размер шрифта для заголовка */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 10px; /* Отступ снизу */
+    text-align: center; /* Центрируем заголовок */
+}
+
+
+th {
+    background-color: #4CAF50; /* Зеленый фон для заголовков */
+    color: white; /* Белый цвет текста */
+    font-weight: bold; /* Жирный шрифт */
+    padding: 10px; /* Отступы внутри ячеек */
+    text-align: center; /* Горизонтальное выравнивание */
+    vertical-align: middle; /* Вертикальное выравнивание */
+}
+
+
+td {
+    padding: 10px; /* Отступы внутри ячеек */
+    text-align: center; /* Горизонтальное выравнивание */
+    vertical-align: middle; /* Вертикальное выравнивание */
+    border: 1px solid #ddd; /* Легкая граница вокруг ячеек */
+}
+
+
+td:empty {
+    background-color: #f9f9f9; /* Светлый фон для пустых ячеек */
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Светлый фон для четных строк */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Белый фон для нечетных строк */
+}
+
+
+td:hover {
+    background-color: #ddd; /* Серая подсветка строки при наведении */
+}
+
+section q:lang(en) {
+    quotes: '"' '"';
+}
+
+section q:lang(ru) {
+    quotes: "«" "»";
+}
+
+p::before {
+    content: "<";
+    color: red;
+    font-weight: 800;
+}
+
+p::after {
+    content: ">";
+    color: red;
+    font-weight: 800;
+}
+
+p.number-of-card {
+    font-family: "Cambria Math", serif;
+}
+
+.preloader {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    background-color: #4ac1f7;
+}
+
+.circle {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes moveRight {
+    to {
+        transform: translateX(30px); /* Сдвиг вправо на 30px */
+    }
+}
+
+@keyframes moveLeft {
+    30% {
+        transform: translateY(-30px); /* Сдвиг вправо на 30px */
+        background-color: #4ac1f7;
+    }
+    70% {
+        transform: translateX(-120px) translateY(-30px); /* Сдвиг вправо на 30px */
+        background-color: #4ac1f7;
+    }
+    100% {
+        transform: translateX(-120px); /* Сдвиг вправо на 30px */
+        background-color: white;
+    }
+}
+
+.circle.moving-left {
+      animation: moveLeft 3s ease-in-out infinite forwards;
+}
+
+.circle.moving-right {
+      animation: moveRight 3s ease-in-out infinite forwards;
+}
+
+
+.certificate {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background-size: cover;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.certificate p::before {
+    content: "";
+}
+
+.certificate p::after {
+    content: "";
+}
+
+.certificate-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 20px solid transparent;
+    z-index: 2;
+}
+
+.certificate-content {
+    text-align: center;
+    padding: 50px;
+    z-index: 3;
+    position: relative;
+    background: #fff url("/static/certificate-background.png") center;
+
+}
+
+.certificate-content h1 {
+    font-size: 32px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.certificate-content .recipient-name {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.certificate-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.certificate-content .date {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+.signature {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #444;
+}
+
+.signature span {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    border-top: 1px solid #444;
+    margin: 0 10px;
+}
+
+
+
+
+
+.box {
+  width: 50vw;
+  height: 50vh;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-690/star.svg);
+  background-size: 20px;
+  background-repeat: round;
+  overflow: hidden;
+  position: relative;
+  min-width: 150px;
+  min-height: 60px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: white;
+  }
+
+  display: grid;
+  place-items: center;
+  span {
+    position: relative;
+  }
+}
+
+

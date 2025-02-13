@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>{{article.title}}</h1>
+    <div>
+        <p> <b>Услуга:</b> {{service.name}}</p>
+        <p> <b>Описание:</b> {{service.description}} </p>
+        <p> <b> Цена:</b> {{service.cost}} бел.руб. </p>
+        <a href="/services">
+                <button>Назад</button></a>
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'create_order' %}">
+            {% csrf_token %}
+            <input type="hidden" name="service_id" value="{{ service.id }}">
+            <button type="submit">Добавить в корзину</button>
+        </form>
+        {% else %}
+        <p>Пожалуйста, войдите, чтобы создать заказ.</p>
+        {% endif %}
+    </div>
+{% endblock %}

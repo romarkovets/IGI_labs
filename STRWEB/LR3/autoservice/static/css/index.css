@@ -1,0 +1,187 @@
+.partner {
+    margin: 15px;
+    text-align: center;
+    color: blue;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+.partner img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: black 2px solid;
+}
+
+.partners-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.partner img:hover {
+    transform: scale(1.1);
+    transition-duration: 1s;
+    box-shadow: 0 0 20px 2px #666;
+}
+
+#latest-news {
+    position: relative;
+    left: 100px;
+}
+
+.services:first-child > span {
+    background-color: lightblue;
+}
+
+.services:last-child > span {
+    background-color: lightsalmon;
+}
+
+.car {
+  position: relative;
+  width: 250px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.car-body {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  width: 210px;
+  height: 70px;
+  background-color: #555;
+  border-radius: 20px 20px 0 0;
+}
+
+
+.windows {
+  position: absolute;
+  top: 5px;
+  left: 40px;
+  width: 130px;
+  height: 40px;
+  background-color: #d5e5ff;
+  border-radius: 5px;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.front-wheel {
+  left: 30px;
+}
+
+.back-wheel {
+  right: 30px;
+}
+
+.headlights {
+  position: absolute;
+  top: 100px;
+  left: 60px;
+  width: 180px;
+  height: 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  opacity: 0;
+}
+
+.headlight {
+  width: 20px;
+  height: 20px;
+  background-color: #ff0;
+  border-radius: 50%;
+}
+
+.company-name {
+  position: absolute;
+  top: 50px;
+  left: 130px;
+  width: 180px;
+  height: 0px;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  opacity: 0;
+  animation: fadeIn 1s forwards 4s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/*@keyframes carAnimation {*/
+/*  0% {*/
+/*    transform: translateY(0px);*/
+/*  }*/
+/*  100% {*/
+/*    transform: translateY(0px);*/
+/*  }*/
+/*}*/
+
+@keyframes wheelAnimation {
+  0% {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+}
+
+@keyframes headlightAnimation {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*.car {*/
+/*  animation: carAnimation 5s ease-in-out 1 forwards;*/
+/*}*/
+
+.wheel {
+  animation: wheelAnimation 5s ease-in-out 1 forwards;
+}
+
+.headlights {
+  animation: headlightAnimation 5s ease-in-out 1 forwards;
+}
+
+#logo {
+  display: flex;
+}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block header %}
+    Добавить отзыв
+{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/review_create.css' %}")
+{% endblock %}
+
+{% block content %}
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+<!--            {{ form.as_p }}  &lt;!&ndash; автоматически выводит все поля формы, обернутые в <p> &ndash;&gt;-->
+
+            <div class="form-group">
+                <label for="id_description">Содержание</label>
+                {{ form.description }}
+                {% if form.description.errors %}
+                    <div class="text-danger">
+                        {{ form.description.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_score">Оценка</label>
+                {{ form.score }}
+                {% if form.score.errors %}
+                    <div class="text-danger">
+                        {{ form.score.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </body>
+{% endblock %}

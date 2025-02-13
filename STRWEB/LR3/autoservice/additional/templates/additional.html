@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% block header %}Дополнительное{% endblock header %}
+
+{% block style %}
+    {% load static %}
+    @import url("{% static 'css/slider.css' %}");
+    @import url("{% static 'css/scroller.css' %}");
+    @import url("{% static 'css/timer.css' %}");
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="car">
+        <img src="{% static 'car.png' %}"  alt="Машина">
+    </div>
+    <div class="tool top-left">
+        <img src="{% static 'tool1.png' %}"  alt="Инструмент1">
+    </div>
+    <div class="tool top-right">
+        <img src="{% static 'tool2.png' %}"  alt="Инструмент2">
+    </div>
+    <div class="tool bottom-left">
+        <img src="{% static 'tool3.png' %}"  alt="Инструмент3">
+    </div>
+    <div class="tool bottom-right">
+        <img src="{% static 'tool4.png' %}"  alt="Инструмент4">
+    </div>
+</div>
+<br><br><br><br><br>
+
+
+
+
+
+<label>
+  <input type="checkbox" id="styleToggle"> Изменить стиль
+</label>
+
+<div id="styleControls" style="display: none;">
+  <h2>Изменение стиля</h2>
+
+  <label for="fontSize">Размер шрифта:</label>
+  <select id="fontSize">
+    <option value="10px">10px</option>
+    <option value="20px">20px</option>
+    <option value="30px">30px</option>
+    <option value="40px">40px</option>
+  </select>
+
+  <label for="textColor">Цвет текста:</label>
+  <input type="color" id="textColor" value="#000000">
+
+  <label for="bgColor">Цвет фона:</label>
+  <input type="color" id="bgColor" value="#ffffff">
+</div>
+
+
+<div class="content">
+  <img src="{% static 'banner1.png' %}" alt="Пример изображения" class="example-image" height=200 width=200>
+</div>
+
+
+
+
+
+
+
+
+<div id="timer"> 59:59 </div>
+
+
+<div class="slider">
+      <div class="slides">
+        <div class="slide" style="text-align:center">
+            <a href="https://vk.com" >
+                <img src="{% static 'add1.png' %}"  alt="ad-banner">
+            </a>
+            <div class="caption">Вконтакте</div>
+        </div>
+        <div class="slide" style="text-align:center">
+            <a href="https://youtube.com">
+                <img src="{% static 'add2.png' %}" alt="ad-banner">
+            </a>
+            <div class="caption">Youtube</div>
+        </div>
+        <div class="slide" style="text-align:center">
+            <a href="https://instagram.com">
+                <img src="{% static 'add3.png' %}" alt="ad-banner">
+            </a>
+            <div class="caption">Instagram</div>
+        </div>
+        <div class="slide" style="text-align:center">
+            <a href="https://facebook.com">
+                <img src="{% static 'add4.png' %}" alt="ad-banner">
+            </a>
+            <div class="caption">Facebook</div>
+        </div>
+      </div>
+
+      <div style="text-align:center">
+        <span class="slider-dot" onclick="slider.goToSlide(0)"></span>
+        <span class="slider-dot" onclick="slider.goToSlide(1)"></span>
+        <span class="slider-dot" onclick="slider.goToSlide(2)"></span>
+        <span class="slider-dot" onclick="slider.goToSlide(3)"></span>
+      </div>
+
+    <button class="slider-btn slider-btn-prev" onclick="slider.prevSlide()">&#10094</button>
+    <button class="slider-btn slider-btn-next" onclick="slider.nextSlide()">&#10095</button>
+</div>
+
+<input type="hidden" id="intervalValue" value="{{ settings.interval }}">
+
+
+
+<h1>Информация о подписчиках</h1>
+
+<div id="subscriberForm">
+    <h2>Добавить нового подписчика</h2>
+    <form id="addSubscriberForm">
+        <label for="name">Фамилия:</label>
+        <input type="text" id="name" required><br><br>
+
+        <label for="address">Адрес:</label>
+        <input type="text" id="address" required><br><br>
+
+        <label for="newspapers">Число газет:</label>
+        <input type="number" id="newspapers" required min="0"><br><br>
+
+        <label for="magazines">Число журналов:</label>
+        <input type="number" id="magazines" required min="0"><br><br>
+
+        <button type="button" onclick="addSubscriber()">Добавить</button>
+    </form>
+</div>
+
+<br>
+<button onclick="displayAllSubscribers()">Показать всех подписчиков</button>
+<button onclick="displayFilteredSubscribers()">Показать подписчиков с 3+ газетами и 2+ журналами</button>
+
+<div id="result"></div>
+
+<h1>Информация о подписчиках 2</h1>
+
+<div id="subscriberForm2">
+    <h2>Добавить нового подписчика</h2>
+    <form id="addSubscriberForm2">
+        <label for="name">Фамилия:</label>
+        <input type="text" id="name2" required><br><br>
+
+        <label for="address">Адрес:</label>
+        <input type="text" id="address2" required><br><br>
+
+        <label for="newspapers">Число газет:</label>
+        <input type="number" id="newspapers2" required min="0"><br><br>
+
+        <label for="magazines">Число журналов:</label>
+        <input type="number" id="magazines2" required min="0"><br><br>
+
+        <button type="button" onclick="addSubscriber2()">Добавить</button>
+    </form>
+</div>
+
+<br>
+<button onclick="displayAllSubscribers2()">Показать всех подписчиков</button>
+<button onclick="displayFilteredSubscribers2()">Показать подписчиков с 3+ газетами и 2+ журналами</button>
+
+<div id="result2"></div>
+
+
+
+
+
+
+
+
+<div id="chartContainer">
+    <canvas id="cosChart"></canvas>
+</div>
+
+<button id="saveChart">Сохранить график</button>
+<br><br><br><br><br><br><br>
+
+
+{% load static %}
+<script src="{% static 'js/slider.js' %}"></script>
+<script src="{% static 'js/styles.js' %}"></script>
+<script src="{% static 'js/timer.js' %}"></script>
+<script src="{% static 'js/scroller.js' %}"></script>
+<script src="{% static 'js/charts.js' %}"></script>
+<script src="{% static 'js/subscriber1.js' %}"></script>
+<script src="{% static 'js/subscriber2.js' %}"></script>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block header %}Частые вопросы{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/faq.css' %}")
+{% endblock %}
+
+{% block content %}
+    <div class="faq">
+        {% for faq in faqs %}
+            <div class="question">
+                <details>
+                    <summary>
+                        <strong> Вопрос: </strong> {{faq.question}}
+                    </summary>
+                    <p><strong>Ответ:</strong> {{faq.answer}}</p>
+                    <p><strong>Дата добавления: </strong> {{faq.date}}</p>
+                </details>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

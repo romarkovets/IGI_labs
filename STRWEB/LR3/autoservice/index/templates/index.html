@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block header %}Главная{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/index.css' %}")
+{% endblock %}
+
+{% block content %}
+    <nav>
+        <h2> Навигация по странице: </h2>
+        <ul>
+            <li> <a href="#logo">Логотипы компании</a> <br> </li>
+            <li> <a href="#banners">Рекламные баннеры</a> <br> </li>
+            <li> <a href="#services">Предоставляемые услуги</a> <br> </li>
+            <li> <a href="#latest-news"> Последние новости</a> <br> </li>
+            <li> <a href="#API">Использование API на сайте</a> <br> </li>
+            <li> <a href="#iframe">Использование iframe на сайте</a> <br> </li>
+            <li> <a href="#audio">Использование аудио на сайте</a> <br> </li>
+            <li> <a href="#listing">Листинг</a> <br> </li>
+        </ul>
+    </nav>
+
+    <h2>Логотипы компании: </h2>
+    <section id="logo">
+        <img src="static/logo.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+
+        <div class="car">
+          <div class="car-body">
+            <div class="windows"></div>
+            <div class="door"></div>
+          </div>
+          <div class="wheel front-wheel"></div>
+          <div class="wheel back-wheel"></div>
+          <div class="headlights">
+            <div class="headlight right"></div>
+          </div>
+          <div class="company-name">Автосервис&nbsp;Маркокекс</div>
+        </div>
+</svg>
+
+    </section>
+
+    <section id="banners">
+        <h2>Наши рекламные баннеры: </h2>
+        <img src="static/banner1.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+        <img src="static/banner2.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+        <img src="static/banner3.png"
+             style="max-width: 200px; max-height: 200px;" alt="">
+    </section>
+
+
+    <section id="services">
+        <h2>Предоставляемые услуги: </h2>
+        <ol>
+            {% for service in services %}
+                <li class="services"> <span> {{ service.name }} </span> </li>
+            {% endfor %}
+        </ol>
+    </section>
+
+
+    <section id="latest-news">
+        <h2>Последние новости:  {{latest_news.title}} </h2>
+        <img src="{{latest_news.photo.url }}"
+            style="max-width: 300px; max-height: 300px;" alt="Последняя новость">
+    </section>
+
+
+    <section id="partner-section">
+        <h2>Наши партнёры:</h2>
+        {% for partner in partners %}
+            <figure class="partner">
+                <a href="{{ partner.url }}" target="_blank">
+                    <img src="{{ partner.logo.url }}" style="max-width: 100px; max-height: 100px;" alt="{{ partner.name }} logo">
+                </a>
+                <figcaption>{{ partner.name }}</figcaption>
+            </figure>
+        {% endfor %}
+    </section>
+
+
+    <section id="API">
+        <h2>API: </h2>
+        {% if user.is_authenticated %}
+            <p> Случайный факт про <strong>кошек</strong>: {{cat_api_data.fact}}</p>
+        {% endif %}
+        <p> Случайное фото <em>собаки</em>: </p>
+        <img src="{{dog_api_data.message}}" alt="News image" width="200" height="200"> <br>
+    </section>
+
+
+    <section id="iframe">
+        <h2>iframe: </h2>
+        <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/yE4Rlp0OeVc?si=UNDQFWBGHwUmrNzt"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </section>
+
+
+    <section id="audio">
+        <h2>audio: </h2>
+        <audio src="static/song.mp3" controls>
+            Ваш браузер не поддерживает элемент audio.
+        </audio>
+        <a href="static/song.mp3" download> <p>Скачать эту песню </p></a>
+    </section>
+
+
+    <section id="listing">
+        <h2>Листинг: </h2>
+        <code> <pre>
+            double infix(double x)
+{
+  char op;
+  if (cin >> op)
+  {
+    double y;
+    if (cin >> y)
+    {
+      switch (op)
+      {
+      case '+': return infix(x + y);
+      case '-': return infix(x - y);
+      case '*': return infix(x * y);
+      case '/': return infix(x / y);
+      default:
+        cerr << "unknown operation '" << op << "'\n";
+        return x;
+      }
+    }
+    else
+      cerr << "number expected\n";
+  }
+
+  return x;
+}
+
+double infix()
+{
+  double x;
+  if (cin >> x)
+    return infix(x);
+
+  cerr << "number expected\n";
+  return 0.;
+            } </pre></code>
+    </section>
+
+
+{% endblock content %}

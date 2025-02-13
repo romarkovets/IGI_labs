@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block header %}Новости{% endblock header %}
+
+{% block style %}
+    {% load static %}
+        @import url("{% static 'css/news.css' %}")
+{% endblock %}
+
+{% block content %}
+    <div class="news">
+        {% for news_item in news %}
+            <article>
+                <h2>{{news_item.title}}</h2>
+                <img src="{{news_item.photo.url }}" alt="Новостная статья" width="300" height="200">
+                <p class="article-heading">
+                    {{news_item.heading}}
+                </p>
+                <a href="/article/{{ news_item.id }}">
+                    <button>Перейти к статье</button>
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+
+{% endblock %}
